@@ -1,5 +1,5 @@
 import topbarHTML from "./components/topbar/topbar.html?raw";
-import "./components/topbar/topbar.scss";
+import "./styles/main.scss";
 import initTopbar from "./components/topbar/topbar.js"; // Importing the function from topbar.js
 
 document.addEventListener("DOMContentLoaded", () => {
