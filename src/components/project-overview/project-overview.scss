@@ -24,6 +24,19 @@
   border: 1px solid #ffffff;
   border-radius: 14px;
   gap: 10px;
+  /* Add animation to the container */
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card {
@@ -36,6 +49,37 @@
   justify-content: space-between;
   min-height: 120px;
   box-sizing: border-box;
+  /* Add individual card animation with staggered delay */
+  animation: slideIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+/* Stagger the animation for each card */
+.overview-container > div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.overview-container > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.overview-container > div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.overview-container > div:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .card-header {
@@ -46,7 +90,7 @@
 
 .icon-placeholder {
   width: 35px;
-  height: 35x;
+  height: 35px;
   color: #dedede;
   border: 1px solid #dedede;
   border-radius: 50%;
@@ -106,6 +150,19 @@
   border-radius: 50%;
   background-color: #e2e8f0;
   color: #0D163A;
+  /* Add subtle pulse animation to the arrow */
+  animation: pulseArrow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseArrow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
 .card-balance {
@@ -128,5 +185,6 @@
 @media (max-width: 768px) {
   .overview-container {
     grid-template-columns: 1fr;
+    height: auto; /* Adjust height for single column layout */
   }
 }
