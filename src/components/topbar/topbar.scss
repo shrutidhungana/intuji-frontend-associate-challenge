@@ -1,0 +1,223 @@
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px; /* Adjusted horizontal padding */
+  background-color: #f7f8fa;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%; /* Ensure topbar takes full width of its container */
+  box-sizing: border-box;
+
+  &__search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 100px;
+    padding: 13px 20px;
+    flex-grow: 1;
+    max-width: 722px;
+    height: 64px;
+    box-sizing: border-box;
+    animation: slideInLeft 0.8s ease-out forwards;
+     opacity: 0;
+  }
+
+  &__search-icon {
+    margin-right: 8px;
+    color: #273040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      min-height: 16px;
+      fill: currentColor;
+    }
+  }
+
+  &__search-input {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #273040;
+    flex-grow: 1;
+    height: 24px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    min-width: 100px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #667085;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Increased gap between action items */
+  }
+
+  &__action-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Adjusted width to fit icon better */
+    height: 48px;
+    border: 1px solid #dedede;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #36404d;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      fill: currentColor; /* Use the current color for the SVG fill */
+      animation: rotate 2s linear forwards;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 4px 12px 4px 0; /* Added right padding */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+
+    &:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__profile-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #36404d;
+    margin-right: 8px;
+    overflow: hidden;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      fill: currentColor; /* Use the current color for the SVG fill */
+    }
+  }
+
+  &__profile-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: #0d163a;
+    white-space: nowrap;
+  }
+
+  &__profile-dropdown-icon {
+    color: #98a2b3;
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      fill: currentColor; /* Use the current color for the SVG fill */
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 15px;
+
+    &__search {
+      width: 100%;
+      max-width: none;
+      margin-bottom: 15px;
+    }
+
+    &__actions {
+      width: 100%;
+      justify-content: space-around;
+      margin-bottom: 15px;
+    }
+
+    &__profile {
+      width: 100%;
+      justify-content: center;
+      padding: 8px 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__search-input {
+      font-size: 14px;
+    }
+
+    &__profile-name {
+      font-size: 13px;
+    }
+  }
+}

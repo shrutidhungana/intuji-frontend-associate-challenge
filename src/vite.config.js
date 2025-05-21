@@ -2,7 +2,7 @@
 import { defineConfig } from "vite";
 import string from "vite-plugin-string";
 import path from "path";
-import svgr from "vite-plugin-svgr";
+import viteSvgLoader from "vite-svg-loader";
 
 export default defineConfig({
   root: ".", // root is project directory
@@ -10,7 +10,7 @@ export default defineConfig({
     string({
       include: ["**/*.html"], // allow importing .html as string
     }),
-    svgr(),
+    viteSvgLoader(),
   ],
   resolve: {
     alias: {
