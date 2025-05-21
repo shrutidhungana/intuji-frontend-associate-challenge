@@ -1,43 +1,46 @@
 // analytics.js
+import Chart from "chart.js/auto";
 
-function initAnalytics() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const timePeriodDropdown = document.querySelector(".time-period-dropdown");
-    const analyticsChartCanvas = document.getElementById("analytics-chart");
+// Function to initialize the analytics chart and its interactions
+export default function initAnalytics() {
+  const timePeriodDropdown = document.querySelector(".time-period-dropdown");
+  const analyticsChartCanvas = document.getElementById("analytics-chart");
+  let analyticsChart; // Variable to hold the Chart.js instance
 
-    let analyticsChart; // To hold the Chart.js instance
+  // Initial chart data for 'weekly' view, closely matching the screenshot's oscillations and 20k limit
+  const initialData = {
+    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    datasets: [
+      {
+        label: "Label 1",
+        data: [14000, 10500, 14800, 8500, 16500, 20800, 12500], // Oscillating data for Label 1
+        borderColor: "#667eea",
+        backgroundColor: "rgba(102, 126, 234, 0.3)",
+        tension: 0.4,
+        pointRadius: 0,
+        fill: true,
+        order: 1,
+      },
+      {
+        label: "Label 2",
+        data: [5800, 9800, 5500, 7000, 11500, 4800, 9500], // Oscillating data for Label 2
+        borderColor: "#fbd38d",
+        backgroundColor: "rgba(251, 211, 141, 0.3)",
+        tension: 0.4,
+        pointRadius: 0,
+        fill: true,
+        order: 2,
+      },
+    ],
+  };
 
-    // Initial chart data (replace with your actual data fetching logic)
-    const initialData = {
-      labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      datasets: [
-        {
-          label: "Label 1",
-          data: [12000, 15000, 8000, 18000, 9000, 22000, 14000],
-          borderColor: "#667eea", // Matching Label 1 color
-          backgroundColor: "rgba(102, 126, 234, 0.2)", // Slightly transparent fill
-          tension: 0.3,
-          pointRadius: 3,
-          pointBackgroundColor: "#667eea",
-        },
-        {
-          label: "Label 2",
-          data: [18000, 20000, 25000, 15000, 28000, 22000, 30000],
-          borderColor: "#fbd38d", // Matching Label 2 color
-          backgroundColor: "rgba(251, 211, 141, 0.2)", // Slightly transparent fill
-          tension: 0.3,
-          pointRadius: 3,
-          pointBackgroundColor: "#fbd38d",
-        },
-      ],
-    };
+  // Function to create or update the analytics chart
+  function createOrUpdateChart(data) {
+    if (analyticsChart) {
+      analyticsChart.destroy();
+    }
 
-    // Function to create or update the analytics chart
-    function createOrUpdateChart(data) {
-      if (analyticsChart) {
-        analyticsChart.destroy(); // Destroy the previous chart instance
-      }
-
+    try {
       analyticsChart = new Chart(analyticsChartCanvas, {
         type: "line",
         data: {
@@ -50,118 +53,165 @@ function initAnalytics() {
           scales: {
             y: {
               beginAtZero: true,
+              max: 22000, // Adjusted max value to accommodate peaks
               ticks: {
-                stepSize: 5000, // Approximate vertical steps like in the image
+                stepSize: 5000,
                 callback: function (value) {
-                  if (value >= 1000) {
-                    return value / 1000 + "k";
-                  }
-                  return value;
+                  return value >= 1000 ? value / 1000 + "k" : value;
                 },
               },
               grid: {
                 display: true,
-                color: "#e2e8f0", // Light grid lines
+                color: "#e2e8f0",
+                lineWidth: 1,
+                drawTicks: false,
+                zeroLineColor: "#e2e8f0",
               },
             },
             x: {
               grid: {
                 display: false,
               },
+              ticks: {
+                padding: 10,
+              },
+            },
+          },
+          elements: {
+            line: {
+              borderWidth: 2,
+            },
+            point: {
+              radius: 0,
             },
           },
           plugins: {
             legend: {
-              display: false, // We have our custom legend in the header
+              display: false,
             },
+            tooltip: {
+              mode: "index",
+              intersect: false,
+              backgroundColor: "rgba(0, 0, 0, 0.8)",
+              titleColor: "#fff",
+              bodyColor: "#fff",
+              borderColor: "#fff",
+              borderWidth: 1,
+              callbacks: {
+                label: function (context) {
+                  let label = context.dataset.label || "";
+                  if (label) {
+                    label += ": ";
+                  }
+                  if (context.parsed.y !== null) {
+                    label += new Intl.NumberFormat("en-US", {
+                      notation: "compact",
+                      unitDisplay: "narrow",
+                    }).format(context.parsed.y);
+                  }
+                  return label;
+                },
+              },
+            },
+          },
+          hover: {
+            mode: "nearest",
+            intersect: true,
           },
         },
       });
+    } catch (error) {
+      console.error("Error creating chart:", error);
     }
+  }
 
-    // Initialize the chart with the initial data
+  // Initialize the chart with the default weekly data
+  if (analyticsChartCanvas) {
     createOrUpdateChart(initialData);
+  }
 
-    if (timePeriodDropdown) {
-      timePeriodDropdown.addEventListener("change", (event) => {
-        const selectedPeriod = event.target.value;
-        console.log(`Selected time period: ${selectedPeriod}`);
-        // In a real application, you would fetch new data here based on the selected period
-        let newData;
-        if (selectedPeriod === "monthly") {
-          newData = {
-            labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
-            datasets: [
-              {
-                label: "Label 1",
-                data: [50000, 60000, 45000, 70000],
-                borderColor: "#667eea",
-                backgroundColor: "rgba(102, 126, 234, 0.2)",
-                tension: 0.3,
-                pointRadius: 3,
-                pointBackgroundColor: "#667eea",
-              },
-              {
-                label: "Label 2",
-                data: [75000, 80000, 90000, 65000],
-                borderColor: "#fbd38d",
-                backgroundColor: "rgba(251, 211, 141, 0.2)",
-                tension: 0.3,
-                pointRadius: 3,
-                pointBackgroundColor: "#fbd38d",
-              },
-            ],
-          };
-        } else if (selectedPeriod === "yearly") {
-          newData = {
-            labels: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ],
-            datasets: [
-              {
-                label: "Label 1",
-                data: [
-                  600000, 700000, 550000, 800000, 650000, 900000, 750000,
-                  850000, 700000, 950000, 800000, 880000,
-                ],
-                borderColor: "#667eea",
-                backgroundColor: "rgba(102, 126, 234, 0.2)",
-                tension: 0.3,
-                pointRadius: 3,
-                pointBackgroundColor: "#667eea",
-              },
-              {
-                label: "Label 2",
-                data: [
-                  900000, 950000, 1100000, 850000, 1200000, 1000000, 1150000,
-                  980000, 1050000, 1300000, 1100000, 1250000,
-                ],
-                borderColor: "#fbd38d",
-                backgroundColor: "rgba(251, 211, 141, 0.2)",
-                tension: 0.3,
-                pointRadius: 3,
-                pointBackgroundColor: "#fbd38d",
-              },
-            ],
-          };
-        } else {
-          newData = initialData; // Revert to weekly data
-        }
+  // Event listener for the time period dropdown
+  if (timePeriodDropdown) {
+    timePeriodDropdown.addEventListener("change", (event) => {
+      const selectedPeriod = event.target.value;
+      let newData;
+      if (selectedPeriod === "monthly") {
+        newData = {
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+          datasets: [
+            {
+              label: "Label 1",
+              data: [45000, 75000, 30000, 85000], // More oscillation for monthly (above 20k, but that's okay based on your description)
+              borderColor: "#667eea",
+              backgroundColor: "rgba(102, 126, 234, 0.3)",
+              tension: 0.4,
+              pointRadius: 0,
+              fill: true,
+              order: 1,
+            },
+            {
+              label: "Label 2",
+              data: [70000, 100000, 45000, 80000], // More oscillation for monthly (above 20k)
+              borderColor: "#fbd38d",
+              backgroundColor: "rgba(251, 211, 141, 0.3)",
+              tension: 0.4,
+              pointRadius: 0,
+              fill: true,
+              order: 2,
+            },
+          ],
+        };
+      } else if (selectedPeriod === "yearly") {
+        newData = {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Label 1",
+              data: [
+                550000, 850000, 400000, 950000, 650000, 1050000, 750000,
+                1000000, 500000, 1150000, 800000, 900000,
+              ], // More oscillation for yearly (scaled up, but keeps the pattern)
+              borderColor: "#667eea",
+              backgroundColor: "rgba(102, 126, 234, 0.3)",
+              tension: 0.4,
+              pointRadius: 0,
+              fill: true,
+              order: 1,
+            },
+            {
+              label: "Label 2",
+              data: [
+                850000, 1100000, 550000, 1250000, 950000, 1350000, 1050000,
+                1200000, 650000, 1450000, 1000000, 1150000,
+              ], // More oscillation for yearly (scaled up)
+              borderColor: "#fbd38d",
+              backgroundColor: "rgba(251, 211, 141, 0.3)",
+              tension: 0.4,
+              pointRadius: 0,
+              fill: true,
+              order: 2,
+            },
+          ],
+        };
+      } else {
+        newData = initialData;
+      }
+      if (analyticsChartCanvas) {
         createOrUpdateChart(newData);
-      });
-    }
-  });
+      }
+    });
+  }
 }
-
-export default initAnalytics;
