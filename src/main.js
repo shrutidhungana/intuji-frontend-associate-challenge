@@ -1,6 +1,11 @@
-import topbarHTML from "./components/topbar/topbar.html?raw";
 import "./styles/main.scss";
-import initTopbar from "./components/topbar/topbar.js"; // Importing the function from topbar.js
+
+import topbarHTML from "./components/topbar/topbar.html?raw";
+import initTopbar from "./components/topbar/topbar.js"; 
+
+import sidebarHTML from "./components/sidebar/sidebar.html?raw";
+import initSidebar from "./components/sidebar/sidebar.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const topbarPlaceholder = document.getElementById("topbar-placeholder");
@@ -10,4 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initTopbar();
   }
+ const sidebarContainer = document.getElementById("sidebar-container");
+ if (sidebarContainer) {
+   sidebarContainer.innerHTML = sidebarHTML;
+
+   initSidebar();
+ }
+
 });
