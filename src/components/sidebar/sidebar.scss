@@ -77,9 +77,9 @@
     transition: background-color 0.2s ease;
     white-space: nowrap;
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 400; 
+    font-weight: 400; /* Default link font weight */
     font-size: 16px;
-    position: relative; 
+    position: relative; /* Added to make it the positioning context for ::before */
 }
 
 .sidebar__nav-link img {
@@ -88,12 +88,12 @@
     margin-right: 12px;
     stroke: #6B7280;
     fill: none;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease; /* Transition for the rotation */
 }
 
 .sidebar__nav-link span {
     font-size: 16px;
-    opacity: 1; 
+    opacity: 1; /* Ensure text is visible by default */
     transform: translateX(0); 
     transition: transform 0.3s ease, opacity 0.3s ease; 
 }
