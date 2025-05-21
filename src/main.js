@@ -9,6 +9,9 @@ import initSidebar from "./components/sidebar/sidebar.js";
 import projectOverviewHTML from "./components/project-overview/project-overview.html?raw";
 import initProjectOverview from "./components/project-overview/project-overview.js";
 
+import analyticsHTML from "./components/analytics/analytics.html?raw";
+import initAnalytics from "./components/analytics/analytics.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const topbarPlaceholder = document.getElementById("topbar-placeholder");
@@ -32,5 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
       projectOverviewContainer.innerHTML = projectOverviewHTML;
       initProjectOverview();
     }
+  
+  const analyticsContainerPlaceholder = document.getElementById(
+    "analytics-container-placeholder"
+  );
+  if (analyticsContainerPlaceholder) {
+    analyticsContainerPlaceholder.innerHTML = analyticsHTML;
+    initAnalytics();
+  }
 
 });
