@@ -6,6 +6,9 @@ import initTopbar from "./components/topbar/topbar.js";
 import sidebarHTML from "./components/sidebar/sidebar.html?raw";
 import initSidebar from "./components/sidebar/sidebar.js";
 
+import projectOverviewHTML from "./components/project-overview/project-overview.html?raw";
+import initProjectOverview from "./components/project-overview/project-overview.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const topbarPlaceholder = document.getElementById("topbar-placeholder");
@@ -21,5 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
    initSidebar();
  }
+  
+    const projectOverviewContainer = document.getElementById(
+      "project-overview-container"
+    );
+    if (projectOverviewContainer) {
+      projectOverviewContainer.innerHTML = projectOverviewHTML;
+      initProjectOverview();
+    }
 
 });

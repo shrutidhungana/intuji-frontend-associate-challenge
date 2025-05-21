@@ -1,0 +1,114 @@
+.overview-header {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem; 
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2d3748; 
+        margin-top: 0; 
+        margin-bottom: 0.5rem; 
+    }
+}
+
+.overview-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1.5rem; 
+    max-width: 960px; 
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 1rem; 
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px; 
+    box-sizing: border-box;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.icon-placeholder {
+    font-size: 1.25rem; 
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a5568; 
+    margin-left: 0.5rem; 
+}
+
+.card-percentage {
+    font-size: 0.875rem;
+    color: #718096; 
+    margin-top: 0.25rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.card-value {
+    font-size: 1.875rem; 
+    font-weight: 700;
+    color: #2d3748; 
+}
+
+.card-sub-value {
+    font-size: 1.125rem; 
+    font-weight: 600;
+    color: #2d3748; 
+}
+
+.card-arrow {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; 
+    height: 32px;
+    border-radius: 50%; 
+    background-color: #e2e8f0; 
+    color: #4a5568; 
+}
+
+
+.card-balance {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: #ffffff;
+}
+
+.card-balance .card-title,
+.card-balance .card-percentage,
+.card-balance .card-value,
+.card-balance .card-sub-value {
+    color: #ffffff; 
+}
+
+.card-balance .card-arrow {
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: #ffffff; 
+}
+
+
+@media (max-width: 768px) {
+    .overview-container {
+        grid-template-columns: 1fr; 
+    }
+}
