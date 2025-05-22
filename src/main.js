@@ -12,14 +12,17 @@ import initProjectOverview from "./components/project-overview/project-overview.
 import analyticsHTML from "./components/analytics/analytics.html?raw";
 import initAnalytics from "./components/analytics/analytics.js";
 
+import savingPlanHTML from "./components/saving-plan/saving-plan.html?raw";
+import initSavingPlan from "./components/saving-plan/saving-plan.js";
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const topbarPlaceholder = document.getElementById("topbar-placeholder");
 
   if (topbarPlaceholder) {
     topbarPlaceholder.innerHTML = topbarHTML;
     initTopbar();
-  } else {
-  }
+  } 
 
   const sidebarContainer = document.getElementById("sidebar-container");
 
@@ -45,5 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
     analyticsContainerPlaceholder.innerHTML = analyticsHTML;
 
     initAnalytics();
+  }
+
+  const savingPlanContainerPlaceholder = document.getElementById(
+    "saving-container-placeholder"
+  );
+  if (savingPlanContainerPlaceholder) {
+    savingPlanContainerPlaceholder.innerHTML = savingPlanHTML;
+
+    initSavingPlan()
   }
 });
