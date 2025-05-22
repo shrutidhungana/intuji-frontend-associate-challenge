@@ -101,3 +101,83 @@
     }
   }
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .recent-transaction {
+    height: auto; /* Adjust height to content */
+  }
+
+  .recent-transaction__list {
+    max-height: none; /* Remove fixed max height */
+  }
+
+  .recent-transaction__item {
+    grid-template-columns: 40px 1fr auto; /* Adjust icon size */
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .recent-transaction__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .recent-transaction__details .recent-transaction__name {
+    font-size: 16px;
+  }
+
+  .recent-transaction__amount,
+  .recent-transaction__amount__figure {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .recent-transaction__header h3 {
+    font-size: 1rem;
+  }
+
+  .recent-transaction__header a {
+    font-size: 0.8rem;
+  }
+
+  .recent-transaction__item {
+    grid-template-columns: 30px 1fr auto; /* Further adjust icon size */
+    gap: 8px;
+  }
+
+  .recent-transaction__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .recent-transaction__details .recent-transaction__name {
+    font-size: 14px;
+  }
+
+  .recent-transaction__details .recent-transaction__date {
+    font-size: 10px;
+  }
+
+  .recent-transaction__amount,
+  .recent-transaction__amount__figure {
+    font-size: 14px;
+  }
+
+  .recent-transaction__amount .completed {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .recent-transaction__details .recent-transaction__name {
+    font-size: 13px;
+  }
+
+  .recent-transaction__amount,
+  .recent-transaction__amount__figure {
+    font-size: 13px;
+  }
+}
+
