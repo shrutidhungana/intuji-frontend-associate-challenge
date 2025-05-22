@@ -1,4 +1,3 @@
-
 .overview-container {
   display: flex;
   justify-content: flex-start;
@@ -89,17 +88,17 @@
   animation-delay: 0.1s;
 }
 
-.overview-container > .white-container > div:nth-child(3) { 
+.overview-container > .white-container > div:nth-child(3) {
   grid-area: saving;
   animation-delay: 0.2s;
 }
 
-.overview-container > .white-container > div:nth-child(4) { 
+.overview-container > .white-container > div:nth-child(4) {
   grid-area: expenses;
   animation-delay: 0.3s;
 }
 
-.overview-container > .white-container > div:nth-child(5) { 
+.overview-container > .white-container > div:nth-child(5) {
   grid-area: incomes;
   animation-delay: 0.4s;
 }
@@ -219,18 +218,80 @@
 }
 
 
+/* --- Responsive Styles for Overview --- */
 @media (max-width: 768px) {
   .overview-container {
-    margin-left: 1rem;
+    margin-left: 0; 
+    width: 100%;
   }
 
   .white-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
     grid-template-areas:
       "header"
       "balance"
       "saving"
       "expenses"
       "incomes";
+    padding: 15px; 
+  }
+
+  .white-container .overview-header {
+    padding: 10px 0; 
+    margin-bottom: 1rem;
+  }
+
+  .white-container .overview-header h2 {
+    font-size: 18px; 
+  }
+
+  .card {
+    margin-bottom: 15px; 
+    min-height: auto; 
+  }
+
+  .card-title {
+    font-size: 16px; 
+  }
+
+  .card-value,
+  .card-sub-value {
+    font-size: 24px;
+    letter-spacing: -1px; 
+  }
+}
+
+
+@media (max-width: 576px) {
+
+   .overview-container {
+    margin-left: 0; 
+    width: 100%;
+  }
+  .white-container {
+    padding: 10px; 
+  }
+
+  .white-container .overview-header h2 {
+    font-size: 16px; 
+  }
+
+  .card-percentage {
+    font-size: 0.75rem; 
+  }
+
+  .card-value,
+  .card-sub-value {
+    font-size: 20px; 
+  }
+
+  .icon-placeholder {
+    width: 30px; 
+    height: 30px;
+    padding: 6px;
+  }
+
+  .card-title {
+    margin-left: 0.3rem; 
   }
 }

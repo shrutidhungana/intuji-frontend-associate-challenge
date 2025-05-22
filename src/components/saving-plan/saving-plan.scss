@@ -1,160 +1,258 @@
 .saving-plan-container {
-    background-color: #fff;
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin-right: 24px;
-    margin-top: 50px;
-    width: 300px;
-    
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-right: 24px;
+  margin-top: 50px;
+  width: 300px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
 
-    .saving-plan-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #eee;
+.saving-plan-container .saving-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
 
-        h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0D163A;
-            margin: 0;
-            line-height: 100%;
-            letter-spacing: -1px;
-        }
+.saving-plan-container .saving-plan-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0D163A;
+  margin: 0;
+  line-height: 100%;
+  letter-spacing: -1px;
+}
 
-        a {
-            text-decoration: none;
-            color: #4745A4;
-            font-size: 16px;
-            line-height: 24px;
-            letter-spacing:0px;
-        }
-    }
+.saving-plan-container .saving-plan-header a {
+  text-decoration: none;
+  color: #4745A4;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
 
-    .saving-plan-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+.saving-plan-container .saving-plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-        .saving-plan-item {
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
+.saving-plan-container .saving-plan-list .saving-plan-item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
 
-            &:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-                margin-bottom: 0;
-            }
+.saving-plan-container .saving-plan-list .saving-plan-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
 
-            .plan-details {
-                margin-bottom: 10px;
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-details {
+  margin-bottom: 10px;
+}
 
-                .plan-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: baseline;
-                    margin-bottom: 5px;
-                }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-details .plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
 
-                .plan-name {
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #0D163A;
-                    margin: 0;
-                    line-height: 24px;
-                    letter-spacing: 0px;
-                    flex-grow: 1;
-                    margin-right: 10px;
-                }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-details .plan-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0D163A;
+  margin: 0;
+  line-height: 24px;
+  letter-spacing: 0px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
 
-                .plan-target {
-                    font-size: 12px;
-                    color: #0D163A;
-                    margin: 0;
-                    font-weight: 400;
-                    line-height: 100%;
-                    letter-spacing: 0px;
-                    white-space: nowrap;
-                }
-            }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-details .plan-target {
+  font-size: 12px;
+  color: #0D163A;
+  margin: 0;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0px;
+  white-space: nowrap;
+}
 
-            .plan-progress {
-                .progress-text {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: baseline;
-                    margin-bottom: 5px;
-                    font-size: 14px;
-                    color: #555;
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
 
-                    .current-amount {
-                        font-weight: 600;
-                        color: #0D163A;
-                        font-size: 20px;
-                        line-height: 100%;
-                        letter-spacing: -1px;
-                    }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .current-amount {
+  font-weight: 600;
+  color: #0D163A;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -1px;
+}
 
-                    .total-amount {
-                        color: #0D163A;
-                        opacity: 50%;
-                        margin-left: 5px;
-                        font-size: 12px;
-                        font-weight: 600;
-                        line-height: 100%;
-                        letter-spacing: -1px;
-                    }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .total-amount {
+  color: #0D163A;
+  opacity: 50%;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -1px;
+}
 
-                    .percentage {
-                        font-weight: 600px;
-                        font-size: 18px;
-                        line-height: 100%;
-                        letter-spacing: -1px;
-                        margin-left: auto;
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage {
+  font-weight: 600px;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -1px;
+  margin-left: auto;
+}
 
-                        &.bali-percent {
-                            color: #4745A4; 
-                        }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage.bali-percent {
+  color: #4745A4;
+}
 
-                        &.gadget-percent {
-                            color: #DD9802; 
-                        }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage.gadget-percent {
+  color: #F9BA33;
+}
 
-                        &.charity-percent {
-                            color: #3BBB6E; 
-                        }
-                    }
-                }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage.charity-percent {
+  color: #3BBB6E;
+}
 
-                .progress-bar-container {
-                    background-color: #DEDEDE;
-                    border-radius: 100px;
-                    height: 8px;
-                    overflow: hidden;
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container {
+  background-color: #DEDEDE;
+  border-radius: 100px;
+  height: 8px;
+  overflow: hidden;
+}
 
-                    .progress-bar {
-                        border-radius: 100px;
-                        width: 299px;
-                        height: 8px;
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container .progress-bar {
+  border-radius: 100px;
+  height: 8px;
+}
 
-                        &.bali {
-                            background-color: #4745A4;
-                        }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container .progress-bar.bali {
+  background-color: #4745A4;
+  width: 79%;
+}
 
-                        &.gadget {
-                            background-color: #F9BA33;
-                        }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container .progress-bar.gadget {
+  background-color: #F9BA33;
+  width: 75%;
+}
 
-                        &.charity {
-                            background-color: #3BBB6E;
-                        }
-                    }
-                }
-            }
-        }
-    }
+.saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container .progress-bar.charity {
+  background-color: #3BBB6E;
+  width: 32%;
+}
+
+@media (max-width: 768px) {
+  .saving-plan-container {
+    margin-top: 20px;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .saving-plan-container .saving-plan-header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  .saving-plan-container .saving-plan-header h2 {
+    font-size: 18px;
+  }
+
+  .saving-plan-container .saving-plan-header a {
+    font-size: 14px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-details .plan-name {
+    font-size: 14px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text {
+    font-size: 12px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .current-amount {
+    font-size: 18px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage {
+    font-size: 16px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container {
+    height: 6px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-bar-container .progress-bar {
+    height: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .saving-plan-container .saving-plan-header h2 {
+    font-size: 16px;
+  }
+
+  .saving-plan-container .saving-plan-header a {
+    font-size: 12px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-details .plan-name {
+    font-size: 13px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .current-amount {
+    font-size: 16px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .total-amount {
+    font-size: 11px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .saving-plan-container .saving-plan-header h2 {
+    font-size: 15px;
+  }
+
+  .saving-plan-container .saving-plan-header a {
+    font-size: 11px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-details .plan-name {
+    font-size: 12px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .current-amount {
+    font-size: 15px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .total-amount {
+    font-size: 10px;
+  }
+
+  .saving-plan-container .saving-plan-list .saving-plan-item .plan-progress .progress-text .percentage {
+    font-size: 13px;
+  }
 }
