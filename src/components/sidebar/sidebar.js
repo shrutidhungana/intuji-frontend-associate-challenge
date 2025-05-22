@@ -42,8 +42,6 @@ export default function initSidebar() {
 
     injectSVG("help-icon", HelpIcon);
     injectSVG("logout-icon", LogoutIcon);
-    
-
-    
+     
 
 }

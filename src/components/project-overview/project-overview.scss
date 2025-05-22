@@ -1,3 +1,4 @@
+/* ProjectOverview.css */
 .overview-header {
   margin-bottom: 1rem;
   padding-left: 1.5rem;
@@ -14,18 +15,28 @@
 }
 
 .overview-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: flex-start;
   max-width: 717px;
   width: 100%;
   height: 430px;
   box-sizing: border-box;
-  margin-left: 2rem;
+  margin-left: 1.5rem; // Reduced from 2rem to match the header padding
+  border-radius: 14px;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.white-container {
+  background-color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 14px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  /* Add animation to the container */
-  animation: fadeIn 0.5s ease-out forwards;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 @keyframes fadeIn {
@@ -41,33 +52,33 @@
 
 .card {
   background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border: 1px solid #DEDEDE;
+  border-radius: 14px;
+  padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 120px;
   box-sizing: border-box;
-  /* Add individual card animation with staggered delay */
   animation: slideIn 0.3s ease-out forwards;
   opacity: 0;
 }
 
 /* Stagger the animation for each card */
-.overview-container > div:nth-child(1) {
+.overview-container > .white-container > div:nth-child(1) {
   animation-delay: 0.1s;
 }
 
-.overview-container > div:nth-child(2) {
+.overview-container > .white-container > div:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.overview-container > div:nth-child(3) {
+.overview-container > .white-container > div:nth-child(3) {
   animation-delay: 0.3s;
 }
 
-.overview-container > div:nth-child(4) {
+.overview-container > .white-container > div:nth-child(4) {
   animation-delay: 0.4s;
 }
 
@@ -102,7 +113,6 @@
   font-weight: 600;
   color: #0d163a;
   margin-left: 0.5rem;
-  // line-height
 }
 
 .increase-percent {
@@ -150,7 +160,6 @@
   border-radius: 50%;
   background-color: #e2e8f0;
   color: #0D163A;
-  /* Add subtle pulse animation to the arrow */
   animation: pulseArrow 1.5s ease-in-out infinite alternate;
 }
 
@@ -185,6 +194,11 @@
 @media (max-width: 768px) {
   .overview-container {
     grid-template-columns: 1fr;
-    height: auto; /* Adjust height for single column layout */
+    height: auto;
+  }
+
+  .white-container {
+    grid-template-columns: 1fr;
+    height: auto;
   }
 }
