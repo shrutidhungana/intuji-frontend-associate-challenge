@@ -1,146 +1,81 @@
+/* analytics.scss */
+
 .analytics-container {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-top: 1.5rem;
-  width: 100%;
-  max-width: 650px;
-  margin-left: 10px;
-  height: auto; /* Make height auto for responsiveness */
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 1.5rem; 
+    width: 100%;
+    max-width: 650px;
+     margin-left: 10px;
+     height: 290px;
 }
 
 .analytics-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap; /* Allow header elements to wrap on smaller screens */
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 
-.analytics-header h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2d3748;
-  margin: 0 0 0.5rem 0; /* Add some bottom margin for wrapping */
-  width: 100%; /* Take full width on smaller screens */
-  text-align: left; /* Align text to the left on smaller screens */
-}
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2d3748;
+        margin: 0;
+    }
 
-.analytics-header .analytics-controls {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap; /* Allow controls to wrap */
-  gap: 1rem; /* Add gap between control elements */
-}
+    .analytics-controls {
+        display: flex;
+        align-items: center;
 
-.analytics-header .analytics-controls .label-group {
-  display: flex;
-  align-items: center;
-  margin-right: 0; /* Remove right margin, use gap instead */
-}
+        .label-group {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
 
-.analytics-header .analytics-controls .label-group .label-indicator {
-  display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-}
+            .label-indicator {
+                display: inline-block;
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+                margin-right: 0.5rem;
+            }
 
-.analytics-header .analytics-controls .label-group .label-text {
-  font-size: 0.875rem;
-  color: #718096;
-}
+            .label-text {
+                font-size: 0.875rem;
+                color: #718096;
+            }
+        }
 
-.analytics-header .analytics-controls .label-1 {
-  background-color: #4745A4;
-}
+        .label-1 {
+            background-color: #667eea; /* Example color for Label 1 (matching image) */
+        }
 
-.analytics-header .analytics-controls .label-2 {
-  background-color: #F9BA33;
-}
+        .label-2 {
+            background-color: #fbd38d; /* Example color for Label 2 (matching image) */
+        }
 
-.analytics-header .analytics-controls .dropdown-wrapper {
-  select.time-period-dropdown {
-    border: 1px solid #e2e8f0;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    color: #4a5568;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%234a5568" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    background-size: 1rem;
-    width: auto; /* Adjust width based on content */
-    min-width: 100px; /* Ensure a minimum width */
-  }
+        .dropdown-wrapper {
+            select.time-period-dropdown {
+                border: 1px solid #e2e8f0;
+                border-radius: 0.5rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                color: #4a5568;
+                appearance: none; /* Remove default arrow */
+                background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%234a5568" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>');
+                background-repeat: no-repeat;
+                background-position: right 0.5rem center;
+                background-size: 1rem;
+            }
+        }
+    }
 }
 
 .analytics-chart-container {
-  #analytics-chart {
-    height: 200px;
-    width: 100%;
-  }
-}
-
-/* --- Responsive Styles for Analytics --- */
-@media (max-width: 768px) {
-  .analytics-container {
-    margin-left: 0; /* Remove left margin */
-    margin-top: 1rem; /* Adjust top margin */
-    padding: 1rem; /* Adjust padding */
-    max-width: 100%; /* Take full width */
-  }
-
-  .analytics-header h2 {
-    font-size: 1.25rem; /* Smaller header font */
-    margin-bottom: 0.25rem;
-  }
-
-  .analytics-header .analytics-controls {
-    justify-content: flex-start; /* Align controls to the left */
-    gap: 0.75rem;
-  }
-
-  .analytics-header .analytics-controls .label-group {
-    margin-right: 0; /* Remove individual label group margin */
-  }
-
-  .analytics-header .analytics-controls .dropdown-wrapper select.time-period-dropdown {
-    font-size: 0.75rem; /* Smaller dropdown font */
-    padding: 0.375rem 0.75rem;
-    min-width: 80px;
-  }
-
-  .analytics-chart-container #analytics-chart {
-    height: 150px; /* Smaller chart height */
-  }
-}
-
-/* For even smaller screens (e.g., mobile phones) */
-@media (max-width: 576px) {
-  .analytics-header h2 {
-    font-size: 1rem; /* Even smaller header font */
-  }
-
-  .analytics-header .analytics-controls {
-    flex-direction: column; /* Stack controls vertically */
-    align-items: flex-start; /* Align items to the left */
-    gap: 0.5rem;
-  }
-
-  .analytics-header .analytics-controls .label-group {
-    margin-right: 0; /* Ensure no extra right margin */
-  }
-
-  .analytics-header .analytics-controls .dropdown-wrapper select.time-period-dropdown {
-    font-size: 0.7rem; /* Even smaller dropdown font */
-    min-width: 60px;
-  }
-
-  .analytics-chart-container #analytics-chart {
-    height: 120px; /* Even smaller chart height */
-  }
+    #analytics-chart {
+        height: 200px; /* Adjust height as needed */
+        width: 100%;
+    }
 }
