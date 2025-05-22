@@ -35,9 +35,10 @@
   padding: 16px 24px;
   background-color: #f7f8fa;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  justify-content: space-between; // Changed from space-evenly to space-between
+  justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
+  // flex-wrap: wrap; /* Enable wrapping for overflow */
 
   &__search {
     display: flex;
@@ -51,7 +52,7 @@
     box-sizing: border-box;
     animation: slideInLeft 0.8s ease-out forwards;
     opacity: 0;
-    margin-right: 20px; // Add margin to create space between search and actions
+    margin-right: 20px;
   }
 
   &__search-icon {
@@ -95,16 +96,16 @@
   &__actions {
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-shrink: 0; // Prevent actions from shrinking
+    gap: 15px; /* Reduced gap for smaller screens */
+    flex-shrink: 0;
   }
 
   &__action-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 40px; /* Reduced size */
+    height: 40px; /* Reduced size */
     border: 1px solid #dedede;
     border-radius: 50%;
     background-color: #fff;
@@ -117,10 +118,10 @@
     }
 
     svg {
-      width: 24px;
-      height: 24px;
-      min-width: 24px;
-      min-height: 24px;
+      width: 20px; 
+      height: 20px; 
+      min-width: 20px;
+      min-height: 20px;
       fill: currentColor;
       animation: rotate 2s linear forwards;
     }
@@ -129,97 +130,252 @@
   &__profile {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
     background-color: #fff;
-    padding: 4px 12px 4px 0;
+    padding: 4px 8px 4px 0; 
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
     animation: slideInRight 0.8s ease-out forwards;
     opacity: 0;
     animation-delay: 0.2s;
-    flex-shrink: 0; // Prevent profile from shrinking
-
-    &:hover {
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+    flex-shrink: 0;
   }
 
   &__profile-avatar {
-    width: 36px;
-    height: 36px;
+    width: 30px; 
+    height: 30px; 
     border-radius: 50%;
     background-color: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #36404d;
-    margin-right: 8px;
+    margin-right: 4px;
     overflow: hidden;
 
     svg {
-      width: 24px;
-      height: 24px;
-      min-width: 24px;
-      min-height: 24px;
+      width: 18px; 
+      height: 18px; 
+      min-width: 18px;
+      min-height: 18px;
       fill: currentColor;
     }
   }
 
   &__profile-name {
-    font-size: 16px;
+    font-size: 14px; 
     font-weight: 400;
     color: #0d163a;
     white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 100px; 
   }
 
   &__profile-dropdown-icon {
     color: #98a2b3;
     display: flex;
     align-items: center;
-    margin-left: 4px;
+    margin-left: 2px; 
 
     svg {
-      width: 24px;
-      height: 24px;
-      min-width: 24px;
-      min-height: 24px;
+      width: 18px; 
+      height: 18px; 
+      min-width: 18px;
+      min-height: 18px;
       fill: currentColor;
     }
   }
+}
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 15px;
+/* --- Responsive Styles --- */
 
-    &__search {
-      width: 100%;
-      max-width: none;
-      margin-bottom: 15px;
-      margin-right: 0;
-    }
 
-    &__actions {
-      width: 100%;
-      justify-content: space-around;
-      margin-bottom: 15px;
-    }
+@media (max-width: 1024px) {
+  .topbar {
+    padding: 12px 18px;
+  }
 
-    &__profile {
-      width: 100%;
-      justify-content: center;
-      padding: 8px 15px;
+  .topbar__search {
+    height: 50px;
+    padding: 10px 16px;
+    margin-right: 10px;
+  }
+
+  .topbar__search-input {
+    font-size: 14px;
+  }
+
+  .topbar__actions {
+    gap: 10px;
+  }
+
+  .topbar__action-item {
+    width: 36px;
+    height: 36px;
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 
-  @media (max-width: 480px) {
-    &__search-input {
-      font-size: 14px;
-    }
+  .topbar__profile-avatar {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+  }
 
-    &__profile-name {
-      font-size: 13px;
+  .topbar__profile-name {
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  .topbar__profile-dropdown-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 10px 15px;
+    flex-direction: row; 
+    align-items: center;
+   
+    justify-content: flex-start; 
+  }
+
+  .topbar__search {
+    width: calc(100% - 120px); 
+    max-width: none;
+    margin-bottom: 0;
+    margin-right: 10px;
+    height: 40px;
+    padding: 8px 12px;
+    order: 1; 
+  }
+
+  .topbar__search-input {
+    font-size: 14px;
+  }
+
+  .topbar__actions {
+    gap: 8px;
+    order: 2; 
+  }
+
+  .topbar__action-item {
+    width: 32px;
+    height: 32px;
+
+    svg {
+      width: 16px;
+      height: 16px;
     }
+  }
+
+  .topbar__profile {
+    gap: 4px;
+    order: 3; /* Position after actions */
+  }
+
+  .topbar__profile-avatar {
+    width: 26px;
+    height: 26px;
+    margin-right: 2px;
+  }
+
+  .topbar__profile-name {
+    font-size: 12px;
+    max-width: 60px;
+  }
+
+  .topbar__profile-dropdown-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 576px) {
+  .topbar {
+    padding: 8px 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .topbar__search {
+    width: calc(100% - 100px); /* Further adjust width */
+    height: 36px;
+    padding: 6px 10px;
+    margin-right: 8px;
+  }
+
+  .topbar__search-input {
+    font-size: 12px;
+  }
+
+  .topbar__actions {
+    gap: 6px;
+  }
+
+  .topbar__action-item {
+    width: 28px;
+    height: 28px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .topbar__profile {
+    gap: 2px;
+  }
+
+  .topbar__profile-avatar {
+    width: 24px;
+    height: 24px;
+    margin-right: 1px;
+  }
+
+  .topbar__profile-name {
+    display: none; /* Hide name on smaller mobile screens */
+  }
+
+  .topbar__profile-dropdown-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* For very small mobile devices */
+@media (max-width: 360px) {
+  .topbar__search {
+    width: calc(100% - 80px);
+    margin-right: 5px;
+  }
+
+  .topbar__actions {
+    gap: 4px;
+  }
+
+  .topbar__action-item {
+    width: 24px;
+    height: 24px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .topbar__profile-avatar {
+    width: 22px;
+    height: 22px;
   }
 }
