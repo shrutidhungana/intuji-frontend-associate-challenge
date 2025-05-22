@@ -7,13 +7,16 @@ export default function initAnalytics() {
   const analyticsChartCanvas = document.getElementById("analytics-chart");
   let analyticsChart; // Variable to hold the Chart.js instance
 
-  // Initial chart data for 'weekly' view, closely matching the screenshot's oscillations and 20k limit
+  // Initial chart data for 'weekly' view with very frequent oscillations
   const initialData = {
     labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     datasets: [
       {
         label: "Label 1",
-        data: [14000, 10500, 14800, 8500, 16500, 20800, 12500], // Oscillating data for Label 1
+        data: [
+          14000, 12000, 15500, 10000, 16500, 9000, 17500, 11500, 15000, 13000,
+          18000, 10500, 16000, 14000,
+        ], // More data points for frequent oscillations
         borderColor: "#667eea",
         backgroundColor: "rgba(102, 126, 234, 0.3)",
         tension: 0.4,
@@ -23,7 +26,10 @@ export default function initAnalytics() {
       },
       {
         label: "Label 2",
-        data: [5800, 9800, 5500, 7000, 11500, 4800, 9500], // Oscillating data for Label 2
+        data: [
+          6000, 8000, 5500, 10500, 7500, 9500, 6000, 12000, 8500, 11000, 7000,
+          13500, 9000, 10000,
+        ], // More data points for corresponding oscillations
         borderColor: "#fbd38d",
         backgroundColor: "rgba(251, 211, 141, 0.3)",
         tension: 0.4,
@@ -53,7 +59,7 @@ export default function initAnalytics() {
           scales: {
             y: {
               beginAtZero: true,
-              max: 22000, // Adjusted max value to accommodate peaks
+              max: 20000, // Set the maximum value to 20k
               ticks: {
                 stepSize: 5000,
                 callback: function (value) {
@@ -130,7 +136,7 @@ export default function initAnalytics() {
     createOrUpdateChart(initialData);
   }
 
-  // Event listener for the time period dropdown
+  // Event listener for the time period dropdown (adjust data for more oscillations if needed)
   if (timePeriodDropdown) {
     timePeriodDropdown.addEventListener("change", (event) => {
       const selectedPeriod = event.target.value;
@@ -141,7 +147,7 @@ export default function initAnalytics() {
           datasets: [
             {
               label: "Label 1",
-              data: [45000, 75000, 30000, 85000], // More oscillation for monthly (above 20k, but that's okay based on your description)
+              data: [16000, 13000, 17000, 11000, 18500, 12500, 15000, 14500], // More data points for monthly
               borderColor: "#667eea",
               backgroundColor: "rgba(102, 126, 234, 0.3)",
               tension: 0.4,
@@ -151,7 +157,7 @@ export default function initAnalytics() {
             },
             {
               label: "Label 2",
-              data: [70000, 100000, 45000, 80000], // More oscillation for monthly (above 20k)
+              data: [7000, 10000, 8000, 15000, 9500, 12000, 6500, 11500], // More data points for monthly
               borderColor: "#fbd38d",
               backgroundColor: "rgba(251, 211, 141, 0.3)",
               tension: 0.4,
@@ -181,9 +187,10 @@ export default function initAnalytics() {
             {
               label: "Label 1",
               data: [
-                550000, 850000, 400000, 950000, 650000, 1050000, 750000,
-                1000000, 500000, 1150000, 800000, 900000,
-              ], // More oscillation for yearly (scaled up, but keeps the pattern)
+                11000, 10500, 14500, 10000, 15500, 12000, 16500, 11500, 14000,
+                9500, 17000, 13000, 12500, 15000, 11000, 16000, 13500, 10000,
+                14000, 12000, 16500, 10500, 15000, 13000,
+              ], // Even more data points for yearly
               borderColor: "#667eea",
               backgroundColor: "rgba(102, 126, 234, 0.3)",
               tension: 0.4,
@@ -194,11 +201,12 @@ export default function initAnalytics() {
             {
               label: "Label 2",
               data: [
-                850000, 1100000, 550000, 1250000, 950000, 1350000, 1050000,
-                1200000, 650000, 1450000, 1000000, 1150000,
-              ], // More oscillation for yearly (scaled up)
+                7500, 10500, 6500, 13000, 8000, 11000, 7000, 13500, 9000, 12000,
+                8500, 10000, 9500, 11500, 7000, 12500, 8000, 10000, 7500, 13000,
+                9000, 11500, 8500, 10500,
+              ], // Even more data points for yearly
               borderColor: "#fbd38d",
-              backgroundColor: "rgba(251, 211, 141, 0.3)",
+              backgroundColor: "#F8CD70",
               tension: 0.4,
               pointRadius: 0,
               fill: true,
