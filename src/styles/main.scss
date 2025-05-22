@@ -3,7 +3,7 @@
 @use "../components//project-overview/project-overview.scss";
 @use "../components//analytics/analytics.scss";
 @use "../components/saving-plan/saving-plan.scss";
-@use "../components/recent-transaction/recent-transaction.scss"; // Import the new component's styles
+@use "../components/recent-transaction/recent-transaction.scss";
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -43,77 +43,66 @@ body {
   flex: 1;
 }
 
+.main-content-grid > .dashboard-container {
+  grid-column: 1 / -1; /* Span across both columns on larger screens */
+  display: grid;
+  grid-template-columns: 1fr 350px; /* Analytics and Recent Transaction side-by-side */
+  gap: 20px;
+}
+
 #saving-container-placeholder {
-  flex-grow: 0;
   width: 350px;
 }
 
-.dashboard-row {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 20px;
-  padding: 0 24px 20px 24px;
-}
-
-.dashboard-row > div {
+.dashboard-container > div {
   flex: 1;
 }
 
-/* --- Responsive Styles --- */
-
-/* For smaller screens (e.g., tablets in portrait mode) */
 @media (max-width: 768px) {
   #sidebar-container {
-    position: static; /* Allow it to flow with the content */
+    position: static;
     width: 100%;
     height: auto;
-    margin-bottom: 20px; /* Add some space below the sidebar */
+    margin-bottom: 20px;
     z-index: auto;
   }
 
   #root {
-    margin-left: 0; /* Remove the left margin */
+    margin-left: 0;
     width: 100%;
   }
 
   .main-content-grid {
-    grid-template-columns: 1fr; /* Stack the overview and saving plan */
+    grid-template-columns: 1fr; /* Stack all main content items */
     padding-right: 10px;
     padding-left: 10px;
   }
 
-  #saving-container-placeholder {
-    width: 100%; 
-    flex-grow:1;/* Make saving plan take full width */
+  .main-content-grid > .dashboard-container {
+    grid-column: auto; /* Reset grid-column */
+    grid-template-columns: 1fr; /* Stack Analytics and Recent Transaction */
+    gap: 20px;
   }
 
-  .dashboard-row {
-    grid-template-columns: 1fr; /* Stack analytics and recent transactions */
-    padding: 0 10px 20px 10px;
+  #saving-container-placeholder {
+    width: 100%;
+    flex-grow: 1;
   }
 }
 
-/* For even smaller screens (e.g., mobile phones) */
 @media (max-width: 576px) {
-  /* You might want to further adjust font sizes, paddings, etc. */
   .main-content-grid {
     gap: 10px;
     margin-top: 10px;
   }
 
-  .dashboard-row {
+  .main-content-grid > .dashboard-container {
     gap: 10px;
   }
 }
 
-/* You can add more media queries for different screen sizes as needed */
-/* For example, for very large screens: */
 @media (min-width: 1200px) {
   .main-content-grid {
     padding-right: 40px;
-  }
-
-  .dashboard-row {
-    padding: 0 40px 40px 40px;
   }
 }

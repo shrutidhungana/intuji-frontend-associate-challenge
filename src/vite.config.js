@@ -5,7 +5,8 @@ import path from "path";
 import viteSvgLoader from "vite-svg-loader";
 
 export default defineConfig({
-  root: ".", // root is project directory
+  root: ".",
+  base: "/intuji-frontend-associate-challenge",
   plugins: [
     string({
       include: ["**/*.html"], // allow importing .html as string
