@@ -5,9 +5,9 @@ import Chart from "chart.js/auto";
 export default function initAnalytics() {
   const timePeriodDropdown = document.querySelector(".time-period-dropdown");
   const analyticsChartCanvas = document.getElementById("analytics-chart");
-  let analyticsChart; // Variable to hold the Chart.js instance
+  let analyticsChart; 
 
-  // Initial chart data for 'weekly' view with very frequent oscillations
+ 
   const initialData = {
     labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     datasets: [
@@ -16,7 +16,7 @@ export default function initAnalytics() {
         data: [
           14000, 12000, 15500, 10000, 16500, 9000, 17500, 11500, 15000, 13000,
           18000, 10500, 16000, 14000,
-        ], // More data points for frequent oscillations
+        ], 
         borderColor: "#667eea",
         backgroundColor: "rgba(102, 126, 234, 0.3)",
         tension: 0.4,
@@ -29,8 +29,8 @@ export default function initAnalytics() {
         data: [
           6000, 8000, 5500, 10500, 7500, 9500, 6000, 12000, 8500, 11000, 7000,
           13500, 9000, 10000,
-        ], // More data points for corresponding oscillations
-        borderColor: "#fbd38d",
+        ], 
+        borderColor: "#F8CD70",
         backgroundColor: "rgba(251, 211, 141, 0.3)",
         tension: 0.4,
         pointRadius: 0,
@@ -59,7 +59,7 @@ export default function initAnalytics() {
           scales: {
             y: {
               beginAtZero: true,
-              max: 20000, // Set the maximum value to 20k
+              max: 20000, 
               ticks: {
                 stepSize: 5000,
                 callback: function (value) {
@@ -131,12 +131,12 @@ export default function initAnalytics() {
     }
   }
 
-  // Initialize the chart with the default weekly data
+ 
   if (analyticsChartCanvas) {
     createOrUpdateChart(initialData);
   }
 
-  // Event listener for the time period dropdown (adjust data for more oscillations if needed)
+ 
   if (timePeriodDropdown) {
     timePeriodDropdown.addEventListener("change", (event) => {
       const selectedPeriod = event.target.value;
@@ -204,7 +204,7 @@ export default function initAnalytics() {
                 7500, 10500, 6500, 13000, 8000, 11000, 7000, 13500, 9000, 12000,
                 8500, 10000, 9500, 11500, 7000, 12500, 8000, 10000, 7500, 13000,
                 9000, 11500, 8500, 10500,
-              ], // Even more data points for yearly
+              ], 
               borderColor: "#fbd38d",
               backgroundColor: "#F8CD70",
               tension: 0.4,
