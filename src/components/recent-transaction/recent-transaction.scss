@@ -1,0 +1,102 @@
+.recent-transaction {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+
+    a {
+      font-size: 0.9rem;
+      color: #1976d2;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9d9d9;
+
+
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    .recent-transaction__name {
+      font-weight: 600;
+      color: #0D163A;
+      font-size: 18px;
+    }
+
+    .recent-transaction__date {
+      color: #0D163A;
+      font-size: 12px;
+      opacity:50%;
+    }
+  }
+
+  &__amount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    color: #0D163A;
+    font-size: 18px;
+    
+
+   &__figure {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .completed {
+      color: #3BBB6E;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 100%;
+      letter-spacing: -1px;
+    }
+  }
+}

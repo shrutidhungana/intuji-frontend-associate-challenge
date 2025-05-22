@@ -13,8 +13,9 @@ import analyticsHTML from "./components/analytics/analytics.html?raw";
 import initAnalytics from "./components/analytics/analytics.js";
 
 import savingPlanHTML from "./components/saving-plan/saving-plan.html?raw";
-import initSavingPlan from "./components/saving-plan/saving-plan.js";
 
+import recentTransactionHTML from "./components/recent-transaction/recent-transaction.html?raw";
+import initRecentTransaction from "./components/recent-transaction/recent-transaction.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const topbarPlaceholder = document.getElementById("topbar-placeholder");
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (topbarPlaceholder) {
     topbarPlaceholder.innerHTML = topbarHTML;
     initTopbar();
-  } 
+  }
 
   const sidebarContainer = document.getElementById("sidebar-container");
 
@@ -46,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (analyticsContainerPlaceholder) {
     analyticsContainerPlaceholder.innerHTML = analyticsHTML;
-
     initAnalytics();
   }
 
@@ -55,7 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   if (savingPlanContainerPlaceholder) {
     savingPlanContainerPlaceholder.innerHTML = savingPlanHTML;
+  }
 
-    initSavingPlan()
+  const recentTransactionContainer = document.getElementById(
+    "recent-transaction-container"
+  );
+  if (recentTransactionContainer) {
+    recentTransactionContainer.innerHTML = recentTransactionHTML;
+    initRecentTransaction()
   }
 });
